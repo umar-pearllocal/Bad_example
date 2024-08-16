@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Example</string>
+    <string name="image">IMAGE</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="your_email_or_phone_number">Mobile number or email</string>
+    <string name="forgot_account">Forgot password?</string>
+    <string name="login">Log in</string>
+    <string name="fakebook">fakebook</string>
+    <string name="your_password_here">Password</string>
+    <string name="language">Language ^</string>
+    <string name="what_s_your_name">What\'s your name?</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="enter_the_name_you_use_in_real_life">Enter the name you use in real life</string>
+</resources>
