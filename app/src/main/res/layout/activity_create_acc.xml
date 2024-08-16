@@ -49,22 +49,31 @@
         android:layout_gravity="center"
         android:layout_marginBottom="16dp">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edittext"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:hint="@string/first_name"
-            android:padding="8dp"/>
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/first_name"/>
 
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@drawable/rounded_edittext"
             android:layout_weight="1"
-            android:hint="@string/last_name"
-            android:padding="8dp"/>
+            android:layout_marginEnd="8dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/last_name"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -95,7 +104,8 @@
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:hint="Select DoB"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/list_view_text"
@@ -104,7 +114,8 @@
             android:background="@drawable/rounded_edittext"
             android:layout_weight="1"
             android:hint="Gender"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            tools:ignore="HardcodedText"/>
 
     </LinearLayout>
 
