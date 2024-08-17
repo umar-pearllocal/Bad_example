@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imageView = findViewById(R.id.logo);
-        imageView.setImageResource(R.drawable.logo);
         TextView textView = findViewById(R.id.resources);
         selectedOptionTextView = findViewById(R.id.show_list_button);
         TextView showListButton = findViewById(R.id.show_list_button);
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         spannableString.setSpan(aboutSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(helpSpan, 8, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(moreSpan, 16, 19, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(moreSpan, 15, 19, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new NoUnderlineSpan(), 0,
                 bottomtext.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 

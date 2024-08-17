@@ -14,10 +14,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textview.MaterialTextView;
+
 public class create_acc extends AppCompatActivity {
 
-    private TextView datePickerText;
-    private TextView listViewText;
+    private MaterialTextView datePickerText;
+    private MaterialTextView listViewText;
     private String[] listItems = {"Male", "Female", "Attack Helicopter"};
 
     @Override

@@ -12,7 +12,7 @@
 
     <ImageButton
         android:id="@+id/back_button"
-        android:padding="12dp"
+        android:padding="40dp"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
@@ -27,6 +27,8 @@
         android:layout_width="108dp"
         android:layout_height="48dp"
         android:textAllCaps="false"
+        android:textSize="16sp"
+        android:padding="12dp"
         android:layout_gravity="center"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -39,37 +41,47 @@
         android:id="@+id/logo"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="40dp"
         android:layout_gravity="center"
+        android:background="@drawable/logo"
         android:contentDescription="@string/fakebook"
 
         />
 
-    <EditText
-        android:id="@+id/email_phone"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/email_phone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:autofillHints="example@example.com"
         android:hint="@string/your_email_or_phone_number"
         android:inputType="textEmailAddress"
-        android:padding="16dp"
-        android:background="@drawable/rounded_edittext"
-        android:layout_marginBottom="16dp"
+        android:textSize="14sp"
         />
+    </com.google.android.material.textfield.TextInputLayout>
 
- <EditText
-        android:id="@+id/password"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        >
+ <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:hint="@string/your_password_here"
         android:inputType="textWebPassword"
-        android:padding="16dp"
-        android:background="@drawable/rounded_edittext"
-        android:layout_marginBottom="16dp"
+        android:textSize="14sp"
         />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,7 +89,8 @@
         android:focusable="true"
         android:textAllCaps="false"
         android:clickable="true"
-        android:padding="16dp"
+        android:layout_marginTop="13dp"
+        android:padding="12dp"
         android:text="@string/login"
         android:textColor="@android:color/white"
         android:layout_marginBottom="16dp"/>
@@ -90,12 +103,50 @@
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_gravity="center"
-        android:padding="16dp"
+        android:layout_gravity="right"
         android:text="@string/forgot_account"
         android:textColor="@color/black"
         android:gravity="center"
         />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/socialbuttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+
+    <Button
+        app:layout_constraintTop_toTopOf="@id/socialbuttons"
+        app:layout_constraintLeft_toLeftOf="@id/socialbuttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:layout_gravity="start"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/google"
+        app:icon="@drawable/img_2"
+        tools:ignore="HardcodedText"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        app:layout_constraintTop_toTopOf="@id/socialbuttons"
+        app:layout_constraintRight_toRightOf="@id/socialbuttons"
+        android:layout_width="wrap_content"
+        android:gravity="end"
+        android:layout_gravity="end"
+        android:layout_height="wrap_content"
+        android:id="@+id/apple"
+        android:text="Apple Login"
+        tools:ignore="HardcodedText" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 
@@ -104,7 +155,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
