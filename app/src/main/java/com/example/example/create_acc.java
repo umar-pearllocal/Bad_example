@@ -1,26 +1,23 @@
 package com.example.example;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.material.textview.MaterialTextView;
+
+import java.util.Objects;
 
 public class create_acc extends AppCompatActivity {
 
     private MaterialTextView datePickerText;
     private MaterialTextView listViewText;
-    private String[] listItems = {"Male", "Female", "Attack Helicopter"};
+    private final String[] listItems = {"Male", "Female", "Attack Helicopter"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +34,8 @@ public class create_acc extends AppCompatActivity {
             finish();
         });
     }
+
+
     private void showDatePickerDialog() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -45,8 +44,25 @@ public class create_acc extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 (view, year1, month1, dayOfMonth) -> {
-                    String selectedDate = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
-                    datePickerText.setText(selectedDate);
+                    Calendar selectedDate = Calendar.getInstance();
+                    selectedDate.set(year1, month1, dayOfMonth);
+                    Calendar currentDate = Calendar.getInstance();
+                    Calendar agelimit=Calendar.getInstance();
+                    agelimit.add(Calendar.YEAR,-15);
+
+                    if (selectedDate.after(currentDate)) {
+                        Toast.makeText(this,
+                                "Time travellers not allowed", Toast.LENGTH_SHORT).show();
+                    } else if(!selectedDate.before(agelimit)){
+                        Toast.makeText(this,
+                                "Back to bed!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        @SuppressLint("DefaultLocale") String formattedDate =
+                                String.format("%02d/%02d/%d", dayOfMonth, month1 + 1, year1);
+                        datePickerText.setText(formattedDate);
+
+                    }
                 }, year, month, day);
 
         datePickerDialog.show();
@@ -58,6 +74,10 @@ public class create_acc extends AppCompatActivity {
 
         builder.setItems(listItems, (dialog, which) -> {
             String selectedOption = listItems[which];
+            if (Objects.equals(listItems[which], listItems[2])) {
+                Toast.makeText(this,
+                        "Helicopter attack not allowed", Toast.LENGTH_SHORT).show();
+            }
             listViewText.setText(selectedOption);
         });
 

@@ -124,21 +124,17 @@
         app:layout_constraintLeft_toLeftOf="@id/socialbuttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_gravity="start"
-        android:layout_marginEnd="8dp"
-        android:id="@+id/google"
-        app:icon="@drawable/img_2"
-        tools:ignore="HardcodedText"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        />
+        android:textAllCaps="false"
+        android:text="Login"
+        android:id="@+id/googlebutton"
+        android:drawableStart="@drawable/img_2"
+        android:drawablePadding="16dp"
+        tools:ignore="HardcodedText" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         app:layout_constraintTop_toTopOf="@id/socialbuttons"
         app:layout_constraintRight_toRightOf="@id/socialbuttons"
         android:layout_width="wrap_content"
-        android:gravity="end"
-        android:layout_gravity="end"
         android:layout_height="wrap_content"
         android:id="@+id/apple"
         android:text="Apple Login"
