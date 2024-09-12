@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!-- Single RecyclerView for displaying both AI and User messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:overScrollMode="ifContentScrolls"
+        android:padding="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/chat_input_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Container for user input and send button -->
+    <LinearLayout
+        android:id="@+id/chat_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- TextInputLayout with Send Button inside -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <!-- EditText for user input -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_message"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="14sp"
+                android:hint="@string/your_message"
+                android:maxLines="2"
+                android:scrollbars="vertical"
+                android:ellipsize="end"
+                android:inputType="textMultiLine"
+                android:overScrollMode="always"
+                android:gravity="start|top"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/button_send"
+            android:layout_width="20dp"
+            android:layout_weight="0.125"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_send_24"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/create_account_green"
+            android:elevation="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"
+            android:background="@drawable/round_button_background"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

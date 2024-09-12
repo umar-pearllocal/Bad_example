@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    app:background="@drawable/img_1"
+    android:background="@drawable/gradient"
     tools:context=".MainActivity">
 
     <ImageButton
@@ -125,9 +125,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="Login"
         android:id="@+id/googlebutton"
-        android:drawableStart="@drawable/img_2"
+        android:drawableStart="@drawable/baseline_login_24"
         android:drawablePadding="16dp"
         tools:ignore="HardcodedText" />
 

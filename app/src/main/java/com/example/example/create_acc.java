@@ -2,6 +2,7 @@ package com.example.example;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -9,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.Objects;
@@ -26,6 +29,12 @@ public class create_acc extends AppCompatActivity {
         ImageButton backButton = findViewById(R.id.back_button);
         datePickerText = findViewById(R.id.date_picker_text);
         listViewText = findViewById(R.id.list_view_text);
+        FloatingActionButton chatFab = findViewById(R.id.chat_fab);
+        chatFab.setOnClickListener(v -> {
+            // Open the Chat Activity
+            Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+            startActivity(intent);
+        });
 
         datePickerText.setOnClickListener(v -> showDatePickerDialog());
         listViewText.setOnClickListener(v -> showListViewDialog());

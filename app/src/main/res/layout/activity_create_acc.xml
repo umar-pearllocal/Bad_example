@@ -15,14 +15,13 @@
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="32dp"
-        android:padding="40dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:background="@drawable/back"
-        />
+        android:padding="8dp" />
 
     <TextView
         android:layout_marginTop="20dp"
@@ -32,16 +31,16 @@
         android:textColor="@android:color/black"
         android:textAllCaps="false"
         android:textSize="25sp"
-        android:layout_marginBottom="10dp"
-        />
+        android:layout_marginBottom="10dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_the_name_you_use_in_real_life"
         android:textAllCaps="false"
         android:textSize="15sp"
-        android:layout_marginBottom="16dp"
-        />
+        android:layout_marginBottom="16dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,46 +49,38 @@
         android:layout_marginBottom="8dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            >
+            android:layout_marginEnd="8dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:hint="@string/first_name"/>
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:hint="@string/last_name"/>
-
         </com.google.android.material.textfield.TextInputLayout>
-
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        >
+        android:layout_marginBottom="8dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="14sp"
             android:hint="@string/your_email_or_phone_number" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -101,24 +92,22 @@
         android:layout_marginBottom="8dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:id="@+id/date_picker_text"
             android:background="@drawable/rounded_edittext"
-            android:hint="@string/dob"/>
+            android:hint="@string/dob" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="8dp"
             android:hint="Gender"
             android:id="@+id/list_view_text"
             android:background="@drawable/rounded_edittext"
             tools:ignore="HardcodedText" />
-
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -135,5 +124,22 @@
         android:layout_marginTop="16dp"
         tools:ignore="HardcodedText" />
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/chat_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/chat"
+            android:scaleType="center"
+            android:contentDescription="@string/help"
+            android:clickable="true"
+            android:focusable="true"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>
