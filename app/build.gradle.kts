@@ -12,6 +12,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        buildConfigField("String", "API_URL", "\"${project.extra["API_URL"]}\"")
+        buildConfigField("String", "API_KEY", "\"${project.extra["API_KEY"]}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,6 +33,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig=true
     }
 }
 

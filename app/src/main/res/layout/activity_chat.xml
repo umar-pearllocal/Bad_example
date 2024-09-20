@@ -26,40 +26,35 @@
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- TextInputLayout with Send Button inside -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
             <!-- EditText for user input -->
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/edit_text_message"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="0.725"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:textSize="14sp"
                 android:hint="@string/your_message"
-                android:maxLines="2"
+                android:maxLines="5"
                 android:scrollbars="vertical"
                 android:ellipsize="end"
                 android:inputType="textMultiLine"
                 android:overScrollMode="always"
-                android:gravity="start|top"
+                android:background="@drawable/rounded_edittext"
             />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
             android:id="@+id/button_send"
-            android:layout_width="20dp"
+            android:layout_width="0dp"
             android:layout_weight="0.125"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:src="@drawable/baseline_send_24"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="end|bottom"
             android:backgroundTint="@color/create_account_green"
             android:elevation="4dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:padding="8dp"
+            android:padding="15dp"
             android:background="@drawable/round_button_background"
             />
     </LinearLayout>

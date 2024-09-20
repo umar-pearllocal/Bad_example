@@ -21,11 +21,12 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.example.BuildConfig;
 
 public class ChatActivity extends AppCompatActivity {
 
-    private static final String API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent";
-    private static final String API_KEY = "AIzaSyCSQBMk4cJ2yZa5N4oTn06WivmfwmFCTCs"; // Replace with your actual API key
+    private static final String API_URL = BuildConfig.API_URL;
+    private static final String API_KEY = BuildConfig.API_KEY;
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
     private RecyclerView recyclerViewChat;

@@ -1,178 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/gradient"
-    tools:context=".MainActivity">
+    android:id="@+id/scrollView">
 
-    <ImageButton
-        android:id="@+id/back_button"
-        android:padding="40dp"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="start"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:background="@drawable/back"
-        />
-
-    <TextView
-        android:id="@+id/show_list_button"
-        android:layout_width="108dp"
-        android:layout_height="48dp"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:padding="12dp"
-        android:layout_gravity="center"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:clickable="true"
-        android:textAlignment="center"
-        android:text="@string/language"
-        />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="40dp"
-        android:layout_gravity="center"
-        android:background="@drawable/logo"
-        android:contentDescription="@string/fakebook"
-
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
+    <!-- Wrapping LinearLayout in a ScrollView to make it scrollable -->
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        >
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/email_phone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:autofillHints="example@example.com"
-        android:hint="@string/your_email_or_phone_number"
-        android:inputType="textEmailAddress"
-        android:textSize="14sp"
-        />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".MainActivity">
 
+        <ImageButton
+            android:id="@+id/back_button"
+            android:padding="40dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="start"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/baseline_arrow_back_24" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        >
- <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/your_password_here"
-        android:inputType="textWebPassword"
-        android:textSize="14sp"
-        />
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/show_list_button"
+            android:layout_width="108dp"
+            android:layout_height="48dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:textAlignment="center"
+            android:text="@string/language" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_withbg"
-        android:focusable="true"
-        android:textAllCaps="false"
-        android:clickable="true"
-        android:layout_marginTop="13dp"
-        android:padding="12dp"
-        android:text="@string/login"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="16dp"/>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/logo"
+            android:contentDescription="@string/fakebook" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="example@example.com"
+                android:hint="@string/your_email_or_phone_number"
+                android:inputType="textEmailAddress"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/forgot_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_gravity="right"
-        android:text="@string/forgot_account"
-        android:textColor="@color/black"
-        android:gravity="center"
-        />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/your_password_here"
+                android:inputType="textWebPassword"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_withbg"
+            android:focusable="true"
+            android:textAllCaps="false"
+            android:clickable="true"
+            android:layout_marginTop="13dp"
+            android:padding="12dp"
+            android:text="@string/login"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/forgot_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_gravity="end"
+            android:text="@string/forgot_account"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            android:gravity="center" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/socialbuttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
+            <Button
+                app:layout_constraintTop_toTopOf="@id/socialbuttons"
+                app:layout_constraintLeft_toLeftOf="@id/socialbuttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:id="@+id/googlebutton"
+                android:drawableStart="@drawable/baseline_login_24"
+                android:background="@drawable/button_bg"
+                tools:ignore="HardcodedText" />
 
-    <Button
-        app:layout_constraintTop_toTopOf="@id/socialbuttons"
-        app:layout_constraintLeft_toLeftOf="@id/socialbuttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:id="@+id/googlebutton"
-        android:drawableStart="@drawable/baseline_login_24"
-        android:drawablePadding="16dp"
-        tools:ignore="HardcodedText" />
-
-    <Button
-        app:layout_constraintTop_toTopOf="@id/socialbuttons"
-        app:layout_constraintRight_toRightOf="@id/socialbuttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/apple"
-        android:text="Apple Login"
-        tools:ignore="HardcodedText" />
-
+            <Button
+                app:layout_constraintTop_toTopOf="@id/socialbuttons"
+                app:layout_constraintRight_toRightOf="@id/socialbuttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/apple"
+                android:drawableStart="@drawable/baseline_login_24"
+                android:background="@drawable/button_bg"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/animation_message"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/create_account_below"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:layout_gravity="center" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="16dp"
+            android:textAllCaps="false"
+            android:text="@string/create_new_account"
+            android:textSize="14sp"
+            android:textColor="@color/facebook_blue"
+            android:background="@drawable/button_bg" />
 
+        <TextView
+            android:id="@+id/resources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="12dp" />
 
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:padding="16dp"
-        android:textAllCaps="false"
-        android:text="@string/create_new_account"
-        android:textColor="@color/facebook_blue"
-        android:background="@drawable/button_bg"
-    />
-
-
-    <TextView
-        android:id="@+id/resources"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:textSize="16sp" />
-
-
-
-</LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

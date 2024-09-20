@@ -2,9 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@color/create_account_green" />
     <corners android:radius="360dp" />
-    <stroke android:width="2dp"/>
-    <stroke android:color="@android:color/black"/>
     <gradient android:startColor="@color/create_account_green"/>
-    <gradient android:endColor="@android:color/transparent"/>
+    <gradient android:endColor="@android:color/black"/>
     <gradient android:angle="45"/>
 </shape>

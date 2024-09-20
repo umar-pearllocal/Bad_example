@@ -1,5 +1,7 @@
 package com.example.example;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,15 +13,16 @@ import android.text.style.CharacterStyle;
 import android.text.style.ClickableSpan;
 import android.text.style.UpdateAppearance;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.widget.NestedScrollView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView selectedOptionTextView;
     private String[] items;
+    private ObjectAnimator jumpAnimator;
+    private boolean isScrolledAllTheWayUp = true; // Flag to check if user has scrolled all the way up
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +43,62 @@ public class MainActivity extends AppCompatActivity {
         TextView showListButton = findViewById(R.id.show_list_button);
         AppCompatButton createAccButton = findViewById(R.id.button2);
         ImageButton backButton = findViewById(R.id.back_button);
+        TextView animationMessage = findViewById(R.id.animation_message);
+        NestedScrollView scrollView = findViewById(R.id.scrollView);
+
+        // Initialize the jumping animation
+        jumpAnimator = ObjectAnimator.ofFloat(animationMessage, "translationY", 0f, -20f, 0f);
+        jumpAnimator.setDuration(1000);
+        jumpAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        jumpAnimator.setRepeatMode(ValueAnimator.RESTART);
+        jumpAnimator.setRepeatCount(ValueAnimator.INFINITE);
+
+        // Fade-in animation
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(animationMessage, "alpha", 0f, 1f);
+        fadeIn.setDuration(200);
+
+        // Fade-out animation
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(animationMessage, "alpha", 1f, 0f);
+        fadeOut.setDuration(200);
+
+        // Set initial visibility and start animations
+        animationMessage.setVisibility(View.VISIBLE);
+        fadeIn.start();
+        jumpAnimator.start();
+
+        // Scroll to bottom on click
+        animationMessage.setOnClickListener(v -> {
+            if (isScrolledAllTheWayUp) {
+                scrollView.smoothScrollTo(0, scrollView.getBottom());
+            }
+        });
+
+        // Listen for scroll events
+        scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                // Check if user has scrolled all the way up
+                if (scrollY == 0) {
+                    isScrolledAllTheWayUp = true; // User is at the top
+                    fadeIn.start(); // Fade-in animation when the user scrolls back up
+                    jumpAnimator.start(); // Restart the jumping animation
+                } else {
+                    isScrolledAllTheWayUp = false; // User is not at the top
+                    if (!v.canScrollVertically(1)) {
+                        // User scrolled to the bottom
+                        fadeOut.start(); // Fade-out animation when the user scrolls to the bottom
+                        jumpAnimator.cancel(); // Stop the jumping animation
+                    }
+                }
+            }
+        });
 
         items = new String[]{"English", "Hindi", "Marathi", "Lassan", "Pyaj"};
 
         // Set default value to the first item
-        selectedOptionTextView.setText(items[0]+" ▼");
+        selectedOptionTextView.setText(items[0] + " ▼");
 
-        showListButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                showBottomSheet();
-            }
-        });
+        showListButton.setOnClickListener(v -> showBottomSheet());
 
         String bottomtext = "About | Help | More";
         SpannableString spannableString = new SpannableString(bottomtext);
@@ -66,8 +116,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
-
         ClickableSpan moreSpan = new ClickableSpan() {
             public void onClick(@NonNull View widget) {
                 // Handle "More" click
@@ -75,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         backButton.setOnClickListener(v -> {
-            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             finish();
         });
 
@@ -114,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set item click listener
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            String selectedItem = items[position]+" ▼";
+            String selectedItem = items[position] + " ▼";
             selectedOptionTextView.setText(selectedItem);
             bottomSheetDialog.dismiss();
         });
